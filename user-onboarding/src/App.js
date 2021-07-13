@@ -4,23 +4,20 @@ import Form from "./Components/Form";
 import * as yup from "yup";
 import Axios from "axios";
 
-
-
 export default function App() {
 	const [form, setForm] = useState({
 		name: "",
 		password: "",
-    passwordConfirmation: "",
+		passwordConfirmation: "",
 		email: "",
 		ToS: false,
 	});
 
+	const [users, setUsers] = useState([]);
 
-	return <div className="AppContainer">
-<Form 
-values={form}
-update={}
-submit={submitForm}/>
-
-  </div>;
+	return (
+		<div className="AppContainer">
+			<Form values={form} />
+		</div>
+	);
 }

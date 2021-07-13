@@ -19,6 +19,8 @@ let schema = yup.object().shape({
 });
 
 export default function Form(props) {
+	const { values } = props;
+
 	const [errors, setErrors] = useState({
 		name: "",
 		password: "",
@@ -70,6 +72,7 @@ export default function Form(props) {
 					passwordConfirmation: "",
 					ToS: false,
 				});
+				console.log(res);
 			})
 			.catch((err) => {
 				debugger;
@@ -85,6 +88,7 @@ export default function Form(props) {
 					name="email"
 					value={values.email}
 				/>
+				<div>{errors.email}</div>
 				<label>Name</label>
 				<input
 					type="Text"
@@ -92,6 +96,7 @@ export default function Form(props) {
 					name="name"
 					value={values.name}
 				/>
+				<div>{errors.name}</div>
 				<label>Password</label>
 				<input
 					type="Password"
@@ -99,7 +104,7 @@ export default function Form(props) {
 					name="password"
 					value={values.password}
 				/>
-
+				<div>{errors.password}</div>
 				<label>Password Confirmation</label>
 				<input
 					type="Password"
@@ -107,7 +112,7 @@ export default function Form(props) {
 					name="passwordConfirmation"
 					value={values.passwordConfirmation}
 				/>
-
+				<div>{errors.passwordConfirmation}</div>
 				<label>Terms of Service</label>
 				<input
 					type="checkbox"
@@ -116,6 +121,7 @@ export default function Form(props) {
 					value={values.ToS}
 					checked={values.toSAgree}
 				/>
+				<div>{errors.ToS}</div>
 			</form>
 			<buton disabled={disabled}>Submit</buton>
 		</div>
